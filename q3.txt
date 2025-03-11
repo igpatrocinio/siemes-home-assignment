@@ -1,0 +1,10 @@
+Question 3. (code not required):
+Describe how you might approach question 1 if you are examining a stream of 1 million records instead.
+
+When start talking about millions, we need to think in how to scale the solution. 
+Pure python is not a good option because then we would need to vertically scale our infrastructure in order to be able to process this amount of data, otherwise we will have out of memory issues. 
+This is not good option because it wouldn't be a so cost effective solution. The best would be to scale horizontally, and python wouldn't fit for that.
+We need to process this data in a distributed manner, for instance using Apache Spark.
+Process the data using a Spark would be a better solution, because it would be more performant and cost effective (in general way). 
+Spark RDD's (Resilient Distributed Datasets) and DataFrames were designed for Scalability, distribuiting the dataset across the nodes in a Spark Cluster. Also they are fault tolerant as they
+can recover from failures, since the data is distributed across the worker nodes. Spark inteligently uses in memory processing, because it can use both caching and persistence in order process data.
